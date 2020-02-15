@@ -8,7 +8,7 @@
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
+    "start": "cross-env NODE_ENV=dev nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -25,7 +25,11 @@
     "@nestjs/platform-express": "^6.10.14",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
-    "rxjs": "^6.5.4"
+    "rxjs": "^6.5.4",
+    "spotify-web-api-node": "^4.0.0",
+    "@nestjs/passport": "^6.1.1",
+    "passport": "^0.4.1",
+    "passport-spotify": "^1.1.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^6.13.2",
@@ -44,6 +48,9 @@
     "prettier": "^1.18.2",
     "supertest": "^4.0.2",
     "ts-jest": "^24.3.0",
+    "qs": "^6.9.1",
+    "cross-env": "^7.0.0",
+    "dotenv": "^8.2.0",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.6.0",
     "tsconfig-paths": "^3.9.0",
