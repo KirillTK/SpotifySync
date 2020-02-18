@@ -1,12 +1,11 @@
 import {HttpException, HttpService, Injectable} from '@nestjs/common';
-import {UsersService} from "../users/users.service";
 import { catchError, map } from "rxjs/operators";
 import * as qs from 'qs';
 
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly usersService: UsersService, private http: HttpService) {
+  constructor(private http: HttpService) {
   }
 
   private generateAuthorizationData() {
@@ -17,8 +16,8 @@ export class AuthService {
     return process.env.CALLBACK_URL_DEV;
   }
 
-  async requestAccessToken(code: string) {
-    const data = qs.stringify({ 'grant_type': 'client_credentials', code , redirect_uri: this.getCallbackUrl()});
+  async getRefreshedAccessToken(refreshToken: string) {
+    const data = qs.stringify({ grant_type: 'refresh_token', refresh_token: refreshToken });
     const headers = { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Authorization': `Basic ${this.generateAuthorizationData()}` };
 
     return this.http.post('https://accounts.spotify.com/api/token', data, { headers }).pipe(
