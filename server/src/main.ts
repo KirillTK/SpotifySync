@@ -4,17 +4,19 @@ import * as passport from 'passport';
 import * as dotenv from 'dotenv';
 import * as session from 'express-session';
 import * as cookieParser from 'cookie-parser';
+import * as cors from 'cors';
 
 async function bootstrap() {
   dotenv.config();
   const app = await NestFactory.create(AppModule);
 
   app.use(cookieParser());
+  app.use(cors());
   app.use(session({
     secret: process.env.SESSION_SECRET,
   }));
   app.use(passport.initialize());
   app.use(passport.session());
-  await app.listen(3000);
+  await app.listen(8080);
 }
 bootstrap();

@@ -1,12 +1,7 @@
 import React from 'react';
-import './App.css';
-import { logIn } from './api/api';
 
-const App = () => {
+export const LoginContainer = () => {
   const { search } = window.location;
-  logIn(search)
-    .then(response => console.error(response))
-    .catch(console.error);
 
   return (
     <div className="App">
@@ -26,5 +21,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;
