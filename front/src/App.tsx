@@ -1,12 +1,8 @@
 import React from 'react';
 import './App.css';
-import { logIn } from './api/api';
 
 const App = () => {
   const { search } = window.location;
-  logIn(search)
-    .then(response => console.error(response))
-    .catch(console.error);
 
   return (
     <div className="App">

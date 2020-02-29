@@ -6,6 +6,7 @@ import { PassportModule } from "@nestjs/passport";
 import {SpotifyAuthGuard} from "./spotify-auth-guard";
 import {UserSerializer} from "./user-serializer";
 import {AuthController} from "./auth.controller";
+import {AuthGuard} from 'src/auth/AuthGuard';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import {AuthController} from "./auth.controller";
     HttpModule,
   ],
   controllers: [AuthController],
-  providers: [AuthService, SpotifyStrategy, SpotifyAuthGuard, UserSerializer],
-  exports: [AuthService, SpotifyAuthGuard],
+  providers: [AuthService, SpotifyStrategy, SpotifyAuthGuard, UserSerializer, AuthGuard],
+  exports: [AuthService, SpotifyAuthGuard, AuthGuard],
 })
 export class AuthModule {}

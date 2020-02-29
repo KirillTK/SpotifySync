@@ -1,32 +1,21 @@
-import {Injectable} from '@nestjs/common';
+import {HttpException, HttpService, Injectable} from '@nestjs/common';
+import {catchError, map} from 'rxjs/operators';
 
 export type User = any;
 
 @Injectable()
 export class UsersService {
-  private readonly users: User[];
 
-  constructor() {
-    this.users = [
-      {
-        userId: 1,
-        username: 'john',
-        password: 'changeme',
-      },
-      {
-        userId: 2,
-        username: 'chris',
-        password: 'secret',
-      },
-      {
-        userId: 3,
-        username: 'maria',
-        password: 'guess',
-      },
-    ];
-  }
+  constructor(private http: HttpService) {}
 
-  async findOne(username: string): Promise<User | undefined> {
-    return this.users.find(user => user.username === username);
-  }
+  async getUserProfile(accessToken) {
+      const headers = { 'Authorization': `Bearer ${accessToken}`};
+    return this.http.get('https://api.spotify.com/v1/me', { headers })
+      .pipe(
+        map(response => response.data),
+        catchError( error => {
+          throw new HttpException(error.response.data, error.response.status)
+        }),
+      )
+  };
 }

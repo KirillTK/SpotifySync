@@ -1,7 +1,8 @@
 import React from 'react';
 
-export const LoginContainer = () => {
+export const LoginContainer = (props: any) => {
   const { search } = window.location;
+  console.log(props);
 
   return (
     <div className="App">
@@ -12,7 +13,6 @@ export const LoginContainer = () => {
         <a
           className="App-link"
           href="http://localhost:8080/auth/login"
-          target="_blank"
           rel="noopener noreferrer"
         >
           Learn React
