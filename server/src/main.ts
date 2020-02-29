@@ -1,17 +1,18 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { AppModule } from 'app.module';
 import * as passport from 'passport';
 import * as dotenv from 'dotenv';
 import * as session from 'express-session';
 import * as cookieParser from 'cookie-parser';
-import * as cors from 'cors';
 
 async function bootstrap() {
   dotenv.config();
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { logger: ['log'], });
 
+
+  // todo need to create cors config
+  app.enableCors();
   app.use(cookieParser());
-  app.use(cors());
   app.use(session({
     secret: process.env.SESSION_SECRET,
   }));

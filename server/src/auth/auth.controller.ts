@@ -1,6 +1,6 @@
 import {Controller, Get, Request, UseGuards} from "@nestjs/common";
 import {SpotifyAuthGuard} from './spotify-auth-guard';
-import {UsersService} from 'src/users/users.service';
+import {UsersService} from 'users/users.service';
 
 @Controller('auth')
 export class AuthController {
@@ -13,7 +13,6 @@ export class AuthController {
   @UseGuards(new SpotifyAuthGuard())
   @Get('callback')
   async callback(@Request() req) : Promise<any> {
-    console.log(req.user.accessToken);
     return 'Saved!';
   }
 }

@@ -1,7 +1,7 @@
 import {Strategy} from 'passport-spotify';
 import {Injectable} from '@nestjs/common';
 import {PassportStrategy} from "@nestjs/passport";
-import {UserScopes} from 'src/constants/UserScopes';
+import {UserScopes} from 'constants/UserScopes';
 
 @Injectable()
 export class SpotifyStrategy extends PassportStrategy(Strategy, 'spotify') {
