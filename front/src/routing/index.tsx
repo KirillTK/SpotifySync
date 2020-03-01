@@ -8,15 +8,21 @@ import { LoginContainer } from 'pages/Login/LoginContainer';
 import { VerificationCode } from 'pages/Login/VerificationCode';
 import { ProfileContainer } from 'pages/Profile/ProfileContainer';
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from 'constants/RouterPath';
+import { ThemeProvider } from '@material-ui/core';
+import { theme } from 'theme';
+import App from 'App';
 
 export const MainRouting: React.FC = () => (
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <Switch>
-        <Route path={PUBLIC_ROUTES.login} component={LoginContainer} />
-        <Route path={PUBLIC_ROUTES.callback} component={VerificationCode} />
-        <Route path={PRIVATE_ROUTES.profile} component={ProfileContainer} />
-      </Switch>
-    </ConnectedRouter>
+    <ThemeProvider theme={theme}>
+      <ConnectedRouter history={history}>
+        <Switch>
+          <Route exact path={PUBLIC_ROUTES.root} component={App} />
+          <Route path={PUBLIC_ROUTES.login} component={LoginContainer} />
+          <Route path={PUBLIC_ROUTES.callback} component={VerificationCode} />
+          <Route path={PRIVATE_ROUTES.profile} component={ProfileContainer} />
+        </Switch>
+      </ConnectedRouter>
+    </ThemeProvider>
   </Provider>
 );

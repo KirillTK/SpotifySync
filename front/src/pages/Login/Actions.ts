@@ -9,5 +9,5 @@ export const submitVerificationCode = (
   code: string
 ): SubmitVerificationAction => ({
   type: SUBMIT_VERIFICATION_CODE,
-  code,
+  code
 });

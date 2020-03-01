@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getProfile } from 'pages/Profile/constants/Actions';
+import { getProfile } from './Actions';
 
 export const ProfileContainer: React.FC = () => {
   const dispatch = useDispatch();

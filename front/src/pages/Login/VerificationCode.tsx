@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { parseVerificationCodeString } from 'utils/utils';
 import { useDispatch } from 'react-redux';
-import { submitVerificationCode } from 'pages/Login/constants/Actions';
+import { submitVerificationCode } from './Actions';
 
 export interface VerificationCode {
   location: {
