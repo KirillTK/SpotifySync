@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { parseVerificationCodeString } from 'utils/utils';
 import { useDispatch } from 'react-redux';
-import { submitVerificationCode } from './constants/Actions';
+import { submitVerificationCode } from 'pages/Login/constants/Actions';
 
-interface VerificationCode {
-  history: History;
-  location: Location;
+export interface VerificationCode {
+  location: {
+    search: string;
+  };
 }
 
 export const VerificationCode: React.FC<VerificationCode> = ({

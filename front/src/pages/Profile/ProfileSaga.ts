@@ -1,5 +1,5 @@
 import { all, takeEvery } from 'redux-saga/effects';
-import { GET_PROFILE } from './constants/ActiontTypes';
+import { GET_PROFILE } from 'pages/Profile/constants/ActiontTypes';
 import { getProfileInfo } from 'api/api';
 
 export function* GET_PROFILE_SAGA() {

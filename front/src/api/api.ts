@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { User } from 'interfaces/User';
 
-export const submitVerificationCode = (code: string) =>
+export const submitVerificationCode = (code: string): Promise<void> =>
   axios.get(`auth/callback?code=${code}`);
 
-export const getProfileInfo = () => axios.get('user/profile');
+export const getProfileInfo = (): Promise<User> => axios.get('user/profile');

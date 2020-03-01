@@ -1,6 +1,6 @@
 import { all } from 'redux-saga/effects';
-import { AuthSaga } from 'login/AuthSaga';
-import { ProfileSaga } from 'Profile/ProfileSaga';
+import { AuthSaga } from 'pages/Login/AuthSaga';
+import { ProfileSaga } from 'pages/Profile/ProfileSaga';
 
 export function* rootSaga() {
   try {

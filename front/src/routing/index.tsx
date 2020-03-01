@@ -4,9 +4,9 @@ import { Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from 'store/store';
 import { history } from 'store/rootReducer';
-import { LoginContainer } from 'login/LoginContainer';
-import { VerificationCode } from 'login/VerificationCode';
-import { ProfileContainer } from 'Profile/ProfileContainer';
+import { LoginContainer } from 'pages/Login/LoginContainer';
+import { VerificationCode } from 'pages/Login/VerificationCode';
+import { ProfileContainer } from 'pages/Profile/ProfileContainer';
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from 'constants/RouterPath';
 
 export const MainRouting: React.FC = () => (
