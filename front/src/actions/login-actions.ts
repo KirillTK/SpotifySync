@@ -1,4 +1,4 @@
-import { SUBMIT_VERIFICATION_CODE } from 'pages/Login/constants/ActiontTypes';
+export const SUBMIT_VERIFICATION_CODE = '@@SUBMIT_VERIFICATION_CODE';
 
 export interface SubmitVerificationAction {
   type: string;

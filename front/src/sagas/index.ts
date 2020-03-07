@@ -1,6 +1,6 @@
 import { all, fork } from 'redux-saga/effects';
-import { AuthSaga } from 'pages/Login/AuthSaga';
-import { ProfileSaga } from 'pages/Profile/ProfileSaga';
+import { AuthSaga } from './auth-saga';
+import { ProfileSaga } from './profile-saga';
 
 export function* rootSaga() {
   try {

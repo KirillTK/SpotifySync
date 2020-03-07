@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getProfile } from './Actions';
+import { ProfileBar } from 'components/AppBar/AppBar';
+import { getProfile } from 'actions/profile-actions';
 
 export const ProfileContainer: React.FC = () => {
   const dispatch = useDispatch();
@@ -9,5 +10,9 @@ export const ProfileContainer: React.FC = () => {
     dispatch(getProfile());
   }, [dispatch]);
 
-  return <div>Profile</div>;
+  return (
+    <>
+      <ProfileBar />
+    </>
+  );
 };

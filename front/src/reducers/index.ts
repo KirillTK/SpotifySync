@@ -1,7 +1,7 @@
 import { createBrowserHistory } from 'history';
 import { connectRouter } from 'connected-react-router';
 import { combineReducers } from 'redux';
-import { profile } from 'pages/Profile/profileReducer';
+import { profile } from './profile-reducer';
 
 export const history = createBrowserHistory();
 

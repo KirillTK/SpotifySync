@@ -1,3 +1,0 @@
-export const GET_PROFILE = '@@PROFILE/GET_PROFILE';
-
-export const SET_PROFILE = '@@PROFILE/SET_PROFILE';

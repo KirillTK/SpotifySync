@@ -1,7 +1,6 @@
 import { all, takeEvery, put } from 'redux-saga/effects';
 import { getProfileInfo } from 'api/api';
-import { GET_PROFILE } from './constants/ActiontTypes';
-import { setProfile } from './Actions';
+import { GET_PROFILE, setProfile } from 'actions/profile-actions';
 
 export function* GET_PROFILE_SAGA() {
   try {

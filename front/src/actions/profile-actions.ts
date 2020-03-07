@@ -1,6 +1,8 @@
 import { Action } from 'redux';
 import { User } from 'interfaces/User';
-import { GET_PROFILE, SET_PROFILE } from './constants/ActiontTypes';
+
+export const GET_PROFILE = '@@PROFILE/GET_PROFILE';
+export const SET_PROFILE = '@@PROFILE/SET_PROFILE';
 
 export const getProfile = (): Action => ({
   type: GET_PROFILE

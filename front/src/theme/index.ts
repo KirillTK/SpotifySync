@@ -1,5 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import { green, common } from '@material-ui/core/colors';
+import { green, common, grey } from '@material-ui/core/colors';
 
 export const theme = createMuiTheme({
   palette: {
@@ -9,10 +9,16 @@ export const theme = createMuiTheme({
       dark: green['700'],
       contrastText: common.white
     },
+    secondary: {
+      light: grey['200'],
+      main: grey['400'],
+      dark: grey['800'],
+      contrastText: common.white
+    },
     type: 'dark',
     background: {
       default: '#282c34',
-      paper: '#282c34',
+      paper: '#282c34'
     }
   }
 });
