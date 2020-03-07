@@ -13,6 +13,7 @@ export class AuthController {
   @UseGuards(new SpotifyAuthGuard())
   @Get('callback')
   async callback(@Request() req) : Promise<any> {
-    return 'Saved!';
+    const { accessToken } = req.user;
+    return this.usersService.getUserProfile(accessToken);
   }
 }

@@ -6,12 +6,14 @@ import {
   SubmitVerificationAction,
   SUBMIT_VERIFICATION_CODE
 } from 'actions/login-actions';
+import { setProfile } from 'actions/profile-actions';
 
 export function* SUBMIT_VERIFICATION_CODE_SAGA({
   code
 }: SubmitVerificationAction) {
   try {
-    yield call(submitVerificationCode, code);
+    const { data } = yield call(submitVerificationCode, code);
+    yield put(setProfile(data));
     yield put(push(PRIVATE_ROUTES.profile));
   } catch (e) {
     yield put(push(PUBLIC_ROUTES.root));
