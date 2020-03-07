@@ -7,7 +7,7 @@ import { history } from 'reducers';
 import { LoginContainer } from 'pages/Login/LoginContainer';
 import { VerificationCode } from 'pages/Login/VerificationCode';
 import { ProfileContainer } from 'pages/Profile/ProfileContainer';
-import { PRIVATE_ROUTES, PUBLIC_ROUTES } from 'constants/RouterPath';
+import { PRIVATE_ROUTES, PUBLIC_ROUTES } from 'constants/router-path';
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import { theme } from 'theme';
 
