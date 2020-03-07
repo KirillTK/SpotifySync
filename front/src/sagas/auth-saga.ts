@@ -1,7 +1,7 @@
 import { all, takeLatest, put, call } from 'redux-saga/effects';
 import { push } from 'connected-react-router';
 import { submitVerificationCode } from 'api/api';
-import { PRIVATE_ROUTES, PUBLIC_ROUTES } from 'constants/RouterPath';
+import { PRIVATE_ROUTES, PUBLIC_ROUTES } from 'constants/router-path';
 import {
   SubmitVerificationAction,
   SUBMIT_VERIFICATION_CODE
