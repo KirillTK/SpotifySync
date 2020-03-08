@@ -2,6 +2,7 @@ import { all, takeLatest, put, call } from 'redux-saga/effects';
 import { push } from 'connected-react-router';
 import { submitVerificationCode } from 'api/api';
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from 'constants/router-path';
+import { localStorage } from 'utils/local-storage';
 import {
   SubmitVerificationAction,
   SUBMIT_VERIFICATION_CODE
@@ -15,6 +16,7 @@ export function* SUBMIT_VERIFICATION_CODE_SAGA({
     const { data } = yield call(submitVerificationCode, code);
     yield put(setProfile(data));
     yield put(push(PRIVATE_ROUTES.profile));
+    localStorage.set('user', data);
   } catch (e) {
     yield put(push(PUBLIC_ROUTES.root));
   }

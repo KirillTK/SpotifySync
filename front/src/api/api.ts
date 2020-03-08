@@ -3,12 +3,14 @@ import { User } from 'interfaces/User';
 import { PUBLIC_ROUTES } from 'constants/router-path';
 import { history } from 'reducers';
 import { HTTP_STATUS_UNAUTHORIZED } from 'constants/status-code';
+import { localStorage } from 'utils/local-storage';
 
 axios.interceptors.response.use(
   (response: AxiosResponse) => response,
   ({ response: { status }, response }) => {
     if (status === HTTP_STATUS_UNAUTHORIZED) {
       history.push(PUBLIC_ROUTES.login);
+      localStorage.remove('user');
     }
 
     // eslint-disable-next-line no-undef
