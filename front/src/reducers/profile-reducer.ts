@@ -6,7 +6,7 @@ export interface ProfileReducer {
   user: User;
 }
 
-const initialState: ProfileReducer = {
+export const initialState: ProfileReducer = {
   user: {
     country: '',
     href: '',
