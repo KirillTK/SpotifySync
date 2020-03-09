@@ -5,5 +5,6 @@ export const PUBLIC_ROUTES = {
 };
 
 export const PRIVATE_ROUTES = {
-  profile: '/profile'
+  index: '/profile',
+  search: '/search'
 };

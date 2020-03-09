@@ -15,7 +15,7 @@ export function* SUBMIT_VERIFICATION_CODE_SAGA({
   try {
     const { data } = yield call(submitVerificationCode, code);
     yield put(setProfile(data));
-    yield put(push(PRIVATE_ROUTES.profile));
+    yield put(push(PRIVATE_ROUTES.search));
     localStorage.set('user', data);
   } catch (e) {
     yield put(push(PUBLIC_ROUTES.root));

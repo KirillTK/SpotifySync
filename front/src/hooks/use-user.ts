@@ -1,18 +1,23 @@
 import { useEffect, useMemo } from 'react';
-import { useDispatch } from 'react-redux';
-import { getProfile } from 'actions/profile-actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { setProfile } from 'actions/profile-actions';
 import { User } from 'interfaces/User';
 import { localStorage } from 'utils/local-storage';
+import { getUser } from 'store/selectors';
 
 export const useUser = (): User => {
   const dispatch = useDispatch();
-  const user = useMemo(() => localStorage.get('user') as User, []);
+  const localStorageUser = useMemo(() => localStorage.get('user') as User, [
+    localStorage
+  ]);
+  const storeUser = useSelector(getUser);
+  const user = localStorageUser || storeUser;
 
   useEffect(() => {
-    if (user) {
-      dispatch(getProfile());
+    if (localStorageUser) {
+      dispatch(setProfile(localStorageUser));
     }
-  }, [user, dispatch, getProfile]);
+  }, [localStorageUser, dispatch]);
 
   return user;
 };
