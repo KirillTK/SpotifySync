@@ -4,12 +4,13 @@ import * as passport from 'passport';
 import * as dotenv from 'dotenv';
 import * as session from 'express-session';
 import * as cookieParser from 'cookie-parser';
+import { ErrorsInterceptor } from 'errors.interceptor';
 
 async function bootstrap() {
   dotenv.config();
   const app = await NestFactory.create(AppModule, { logger: ['log'], });
 
-
+  app.useGlobalInterceptors(new ErrorsInterceptor());
   // todo need to create cors config
   app.enableCors();
   app.use(cookieParser());

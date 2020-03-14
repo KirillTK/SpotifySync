@@ -22,3 +22,6 @@ export const submitVerificationCode = (code: string): Promise<void> =>
   axios.get(`auth/callback?code=${code}`);
 
 export const getProfileInfo = (): Promise<User> => axios.get('user/profile');
+
+export const getSongsByName = (q: string): Promise<any> =>
+  axios.get(`spotify/track?q=${q}`);

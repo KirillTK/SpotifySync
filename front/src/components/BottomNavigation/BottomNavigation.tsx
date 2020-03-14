@@ -6,6 +6,7 @@ import {
   Theme
 } from '@material-ui/core';
 import RestoreIcon from '@material-ui/icons/Restore';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -16,32 +17,19 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export const BottomNavigationBar: React.FC = () => {
   const classes = useStyles();
-  const [value, setValue] = useState('recents');
+  const [value, setValue] = useState('search');
+  const { push } = useHistory();
 
-  const handleChange = useCallback((event: ChangeEvent, newValue) => {
+  const handleChange = useCallback((event: ChangeEvent, newValue: string) => {
     setValue(newValue);
+    push(newValue);
   }, []);
 
   return (
     <BottomNavigation value={value} onChange={handleChange} classes={classes}>
       <BottomNavigationAction
-        label="Recents"
-        value="recents"
-        icon={<RestoreIcon />}
-      />
-      <BottomNavigationAction
-        label="Favorites"
-        value="favorites"
-        icon={<RestoreIcon />}
-      />
-      <BottomNavigationAction
-        label="Nearby"
-        value="nearby"
-        icon={<RestoreIcon />}
-      />
-      <BottomNavigationAction
-        label="Folder"
-        value="folder"
+        label="Search"
+        value="search"
         icon={<RestoreIcon />}
       />
     </BottomNavigation>

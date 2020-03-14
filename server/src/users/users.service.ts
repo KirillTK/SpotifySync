@@ -28,10 +28,7 @@ export class UsersService {
     return this.http.get('https://api.spotify.com/v1/me', { headers })
       .pipe(
         map(response => response.data),
-        map(UsersService.buildUser),
-        catchError( error => {
-          throw new HttpException(error.response.data, error.response.status)
-        }),
+        map(UsersService.buildUser)
       )
   };
 }
