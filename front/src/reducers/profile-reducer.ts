@@ -3,20 +3,11 @@ import { User } from 'interfaces/User';
 import { SetProfile, SET_PROFILE } from 'actions/profile-actions';
 
 export interface ProfileReducer {
-  user: User;
+  user: User | undefined;
 }
 
 export const initialState: ProfileReducer = {
-  user: {
-    country: '',
-    href: '',
-    id: '',
-    email: '',
-    displayName: '',
-    images: [],
-    type: '',
-    uri: ''
-  }
+  user: undefined
 };
 
 type ProfileAction = SetProfile;

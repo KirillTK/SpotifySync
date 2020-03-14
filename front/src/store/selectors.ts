@@ -1,5 +1,5 @@
-// TODO need to write interface
-import { ProfileReducer } from 'reducers/profile-reducer';
 import { User } from 'interfaces/User';
+import { RootReducer } from 'reducers';
 
-export const getUser = (state: any): User => state.profile;
+export const getUser = (state: RootReducer): User | undefined =>
+  state.profile.user;

@@ -4,13 +4,14 @@ import { setProfile } from 'actions/profile-actions';
 import { User } from 'interfaces/User';
 import { localStorage } from 'utils/local-storage';
 import { getUser } from 'store/selectors';
-import { isUserEmpty } from 'utils/utils';
 
-export const useUser = (): User => {
+type UserType = User | undefined;
+
+export const useUser = (): UserType => {
   const dispatch = useDispatch();
   const localStorageUser = useMemo(() => localStorage.get('user') as User, []);
-  const storeUser = useSelector<User>(getUser);
-  const user = localStorageUser || !isUserEmpty(storeUser) ? storeUser : null;
+  const storeUser = useSelector(getUser);
+  const user = localStorageUser || storeUser ? storeUser : undefined;
 
   useEffect(() => {
     if (localStorageUser) {

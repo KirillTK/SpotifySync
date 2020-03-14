@@ -8,6 +8,7 @@ import { theme } from 'theme';
 import { PUBLIC_ROUTES } from 'constants/router-path';
 import { ProfileRoutes } from './ProfileRoutes';
 import { PublicRoutes } from './PublicRoutes';
+import { GuardProvider } from 'routing/GuardProvider';
 
 export const MainRouting: React.FC = () => (
   <Provider store={store}>
@@ -16,8 +17,12 @@ export const MainRouting: React.FC = () => (
       <Router history={history}>
         <Switch>
           <Redirect exact from={PUBLIC_ROUTES.root} to={PUBLIC_ROUTES.login} />
-          <ProfileRoutes />
-          <PublicRoutes />
+          <GuardProvider>
+            <>
+              <ProfileRoutes />
+              <PublicRoutes />
+            </>
+          </GuardProvider>
         </Switch>
       </Router>
     </ThemeProvider>
