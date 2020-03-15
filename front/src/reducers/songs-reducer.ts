@@ -5,11 +5,13 @@ import {
 } from 'actions/spotify-actions';
 import { Song } from 'interfaces/Song';
 
+export interface SearchSongsList {
+  songs: Song[];
+  offset: number;
+}
+
 export interface SongsReducer {
-  searchSongsList: {
-    songs: Song[];
-    offset: number;
-  };
+  searchSongsList: SearchSongsList;
 }
 
 export const initialState = {

@@ -44,6 +44,9 @@ export class SpotifyService {
 
     return this.http.get<TrackSearchResponse>(SPOTIFY.SEARCH, {params: {q, offset, type: 'track'}, headers}).pipe(
       map(((response: AxiosResponse<TrackSearchResponse>) => response.data.tracks)),
+      map(tracks => {
+        return tracks;
+      }),
       map(this.buildListSongs)
     );
   };

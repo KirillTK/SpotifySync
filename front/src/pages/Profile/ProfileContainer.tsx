@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 import { BottomNavigationBar, ProfileBar } from 'components';
 
 interface ProfileContainer {
@@ -14,11 +14,11 @@ export const ProfileContainer: React.FC<ProfileContainer> = ({
       container
       direction="column"
       justify="space-between"
-      alignItems="center"
+      wrap="nowrap"
       className="full-height"
     >
       <ProfileBar />
-      {children}
+      <Container>{children}</Container>
       <BottomNavigationBar />
     </Grid>
   );
