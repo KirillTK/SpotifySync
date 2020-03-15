@@ -5,6 +5,7 @@ import { useStyles } from './Input.styles';
 import { useDispatch } from 'react-redux';
 import { findSongs } from 'actions/spotify-actions';
 import { useDebounce } from 'hooks/useDebounce';
+import { DEFAULT_OFFSET } from 'constants/spotify';
 
 export const InputSearch: React.FC = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export const InputSearch: React.FC = () => {
 
   useEffect(() => {
     if (debouncedName) {
-      dispatch(findSongs(debouncedName));
+      dispatch(findSongs(debouncedName, DEFAULT_OFFSET));
     }
   }, [debouncedName]);
 
