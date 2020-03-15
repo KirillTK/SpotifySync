@@ -1,0 +1,27 @@
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+// Flex
+.flex {
+  display: flex;
+
+  &.align-center {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+///
+
+.full-height {
+  height: 100%;
+}
+
+.app-container {
+  height: 100%;
+}
