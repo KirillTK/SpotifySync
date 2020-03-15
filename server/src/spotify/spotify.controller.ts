@@ -10,9 +10,9 @@ export class SpotifyController {
 
   @UseGuards(AuthGuard)
   @Get('track')
-  async getTrack(@Request() req, @Query('q') q) {
+  async getTrack(@Request() req, @Query('q') q, @Query('offset') offset) {
     const { accessToken } = req.user;
-    return this.spotifyApi.getTrackListByName(accessToken, q);
+    return this.spotifyApi.getTrackListByName(accessToken, q, offset);
   };
 
 }
