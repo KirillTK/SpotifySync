@@ -9,8 +9,8 @@ import { DEFAULT_OFFSET } from 'constants/spotify';
 
 export const InputSearch: React.FC = () => {
   const dispatch = useDispatch();
-  const [songName, setName] = useState();
-  const debouncedName = useDebounce(songName);
+  const [songName, setName] = useState('');
+  const debouncedName = useDebounce<string>(songName);
   const classes = useStyles();
 
   const handleChange = ({
