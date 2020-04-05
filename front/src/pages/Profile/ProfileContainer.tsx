@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
-import { Grid } from '@material-ui/core';
+import React from 'react';
+import { Container, Grid } from '@material-ui/core';
 import { BottomNavigationBar, ProfileBar } from 'components';
-import { getSongsByName } from 'api/api';
 
 interface ProfileContainer {
   children: React.ReactElement;
@@ -10,20 +9,16 @@ interface ProfileContainer {
 export const ProfileContainer: React.FC<ProfileContainer> = ({
   children
 }: ProfileContainer) => {
-  useEffect(() => {
-    getSongsByName('Nirvana').then((res) => console.log(res));
-  }, []);
-
   return (
     <Grid
       container
       direction="column"
       justify="space-between"
-      alignItems="center"
+      wrap="nowrap"
       className="full-height"
     >
       <ProfileBar />
-      {children}
+      <Container>{children}</Container>
       <BottomNavigationBar />
     </Grid>
   );

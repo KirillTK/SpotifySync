@@ -4,6 +4,7 @@ import { PUBLIC_ROUTES } from 'constants/router-path';
 import { history } from 'reducers';
 import { HTTP_STATUS_UNAUTHORIZED } from 'constants/status-code';
 import { localStorage } from 'utils/local-storage';
+import { Song } from 'interfaces/Song';
 
 axios.interceptors.response.use(
   (response: AxiosResponse) => response,
@@ -23,5 +24,7 @@ export const submitVerificationCode = (code: string): Promise<void> =>
 
 export const getProfileInfo = (): Promise<User> => axios.get('user/profile');
 
-export const getSongsByName = (q: string): Promise<any> =>
-  axios.get(`spotify/track?q=${q}`);
+export const getSongsByName = (q: string, offset: number): Promise<Song[]> =>
+  axios.get(`spotify/track?q=${q}&&offset=${offset}`);
+
+export const playMusic = (songName: string, id: string) => axios.get(`spotify/song`, { params: { id, name: songName }, responseType: 'arraybuffer' });
