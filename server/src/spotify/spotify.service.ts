@@ -1,10 +1,11 @@
 import {HttpService, Injectable} from "@nestjs/common";
 import {SPOTIFY} from "constants/Api";
-import {map} from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 import TrackSearchResponse = SpotifyApi.TrackSearchResponse;
 import {AxiosResponse} from 'axios';
 import TrackObjectFull = SpotifyApi.TrackObjectFull;
 import PagingObject = SpotifyApi.PagingObject;
+import { YoutubeService } from 'youtube/youtube.service';
 
 @Injectable()
 export class SpotifyService {

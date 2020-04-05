@@ -7,13 +7,17 @@ import {
   ListItemAvatar,
   ListItemText
 } from '@material-ui/core';
+import { useDispatch } from 'react-redux';
+import { playSong } from 'actions/spotify-actions';
 
 interface TrackList {
   songs: Song[];
 }
 
 export const TrackList: React.FC<TrackList> = ({ songs }: TrackList) => {
-  console.log(songs);
+  const dispatch = useDispatch();
+
+  const handlePlayMusic = (name: string, id: string) => dispatch(playSong(name, id));
 
   const items = useMemo(() => {
     return songs.map(song => {
@@ -23,6 +27,9 @@ export const TrackList: React.FC<TrackList> = ({ songs }: TrackList) => {
             <Avatar src={song.previewAlbum.url} />
           </ListItemAvatar>
           <ListItemText primary={song.name} secondary={song.artist.name} />
+          <button onClick={() => handlePlayMusic(song.name, song.id)}>
+            Play
+          </button>
         </ListItem>
       );
     });

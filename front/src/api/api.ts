@@ -26,3 +26,5 @@ export const getProfileInfo = (): Promise<User> => axios.get('user/profile');
 
 export const getSongsByName = (q: string, offset: number): Promise<Song[]> =>
   axios.get(`spotify/track?q=${q}&&offset=${offset}`);
+
+export const playMusic = (songName: string, id: string) => axios.get(`spotify/song`, { params: { id, name: songName }, responseType: 'arraybuffer' });
